@@ -1,0 +1,554 @@
+
+<script type="text/javascript">
+		var _paq = window._paq || [];
+		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+		_paq.push(['trackPageView']);
+		_paq.push(['enableLinkTracking']);
+		(function() {
+		var u="//analytics.vnpt.vn/matomo/";
+		_paq.push(['setTrackerUrl', u+'matomo.php']);
+		_paq.push(['setSiteId', '322']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+		})();
+	</script>
+
+
+
+
+<div ui-view="" class="ng-scope" style=""><div class="ng-scope">
+    <!-- uiView: --><div ui-view="" ng-style="{'min-height': main.minHeight + 'px'}" class="ng-scope" style="min-height: 829px;"><style class="ng-scope">
+    .cardlink:hover {
+        text-decoration: none
+    }
+
+    .list-promotion-item.active .thumb img.bg,
+    .list-promotion-item.active .text-container {
+        border-color: #1122cc;
+        border-width: 1px;
+        border-style: solid;
+    }
+
+    .list-promotion-item.active .text-container {
+        border-top: none;
+    }
+
+
+    .btn-yellow-secondary {
+        background: #fbce3d url(/img/hoivien/btn-luckydraw.jpg) no-repeat top;
+        background-size: cover;
+        font-size: 26px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #6a4c08;
+        width: 165px;
+    }
+
+    .btn-yellow-secondary:hover {
+        color: #413971
+    }
+
+    .quy-dinh {
+        font-size: 16px;
+        line-height: 26px;
+        padding: 5px 10px;
+        font-weight: bold;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="css/easywheel.css" class="ng-scope">
+<!--<vsc-Loading ng-show="vm.IsRequesting"></vsc-Loading>-->
+<div class="listbanner ng-scope">
+    <div class="ngSlider ng-isolate-scope" ng-data="vm.slides">
+    <!-- ngRepeat: item in ngData --><div class="slide bannerfix ng-scope active" ng-repeat="item in ngData" ng-class="{'active': active==item}" style="">
+        <!-- ngIf: item.href!='' -->
+        <!-- ngIf: item.href=='' --><img ng-if="item.href==''" ng-src="https://picture.vinaphoneplus.com.vn/uploads/doidiem-1513001243024.png" class="ng-scope" src="https://picture.vinaphoneplus.com.vn/uploads/doidiem-1513001243024.png"><!-- end ngIf: item.href=='' -->
+    </div><!-- end ngRepeat: item in ngData -->
+    <div class="dotss nextpagefix">
+        <!-- ngRepeat: item in ngData --><span class="swiper-pagination-bullet dots ng-scope active" ng-repeat="item in ngData" ng-class="{'active': active==item}" onclick="arrayDot=document.getElementsByClassName('swiper-pagination-bullet');
+        var i=0;
+        for(i=0;i<arrayDot.length;i++){
+        arrayDot[i].setAttribute('class','swiper-pagination-bullet noactive');
+        };this.setAttribute('class','swiper-pagination-bullet active'); " ng-click="nexts(ngData.indexOf(item))" style=""></span><!-- end ngRepeat: item in ngData -->
+    </div>
+    <!--<div class="swiper-button-next swiper-button-white" ng-click="next()"></div>-->
+    <!--<div class="swiper-button-prev swiper-button-white" ng-click="prev()"></div>-->
+    <!--<div class="swiper-pagination"></div>-->
+</div>
+</div>
+<div class="main-content ng-scope">
+    <!-- ngInclude: 'components/main/header.html' --><div ng-include="'components/main/header.html'" class="ng-scope" style=""><div class="header hidden-xs ng-scope">
+	<div class="row">
+		<div class="col col-md-6 col-sm-6">
+			<a href="#/main/home"><img src="img/vnplogo.png" class="logo"></a>
+			<div class="user-container-header" ng-show="!main.loggedIn &amp;&amp; !main.loadingUserInfo">
+				<a class="none-underline" href="" ng-click="main.login()">ĐĂNG NHẬP / ĐĂNG KÝ</a>
+			</div>
+			<div class="user-container-header ng-hide" ng-show="main.loadingUserInfo">
+				<a href="" ng-click="main.login()">Đang xử lý...</a>
+			</div>
+			<div class="user-container-header ng-hide" ng-show="main.loggedIn &amp;&amp; !main.loadingUserInfo">
+				<div class="dropdown ng-hide" ng-show="main.loggedIn &amp;&amp; !main.loadingUserInfo">
+					<a id="dropdownMenu2" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="ng-binding">
+                        <br>Điểm:  | Hạng:
+                    </a>
+					<div class="dropdown-content">
+						<a href="#/main/goidichvu"><span class="glyphicon glyphicon-user"></span>&nbsp;Quản lý thông tin hội viên</a>
+						<!-- <a href="javascript:void(0)" ng-click="main.btnMaTichDiem();"><span class="glyphicon glyphicon-qrcode"></span>&nbsp;Mã tích điểm Vpoint</a>
+						<a href="javascript:void(0)" ng-click="main.btnThanhToan_Click();"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;Đổi điểm Vpoint</a> -->
+						<a href="" ng-click="main.logout()"><span class="glyphicon glyphicon-off"></span>&nbsp;Ðăng xuất</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col col-md-3 col-sm-3 text-right">
+			<a href="#/main/about" class="text-blue none-underline">GIỚI THIỆU &nbsp;&nbsp;</a>
+			<a href="#/main/news/1" class="text-blue none-underline">TIN TỨC &nbsp;&nbsp;</a>
+		</div>
+		<div class="col col-md-3 col-sm-3">
+				<form name="myform" ng-submit="main.loadsearch()" class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength">
+					<div class="col-md-12">
+						<input type="search" id="inpt_search" class="search-box ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" placeholder="TÌM KIẾM..." ng-model="$root.search.content" ng-trim="false" maxlength="250" required="">
+						<button type="submit" class="btn-right submit-search" ng-disabled="myForm.$pristine|| myForm.$invalid"></button>
+					</div>
+					<!--<div class="col-md-4">
+					<button type="submit" class="btn-right" style="margin-top: 10px" ng-disabled="myForm.$pristine|| myForm.$invalid"></button>
+					</div>-->
+				</form>
+		</div>
+	</div>
+</div>
+<style class="ng-scope">
+
+	.expandIcon,
+	.expandIcon::before {
+		float: right;
+	}
+	.dropdown-menu .submenu.open .expandIcon::before {
+		transform: rotate(90deg);
+	}
+
+	.submit-search{
+		position: absolute;
+		right: 0;
+		top: 10px;
+	}
+	.dropdown-menu .submenu ul {
+		list-style: none;
+		padding: 0px;
+		visibility: hidden;
+		height: 0px;
+	}
+
+	.dropdown-menu .submenu.open ul {
+		visibility: visible;
+		height: auto;
+	}
+
+	.dropdown-menu .submenu li a {
+		padding: 5px;
+		padding-left: 40px;
+	}
+
+	.dropdown-menu .submenu li:hover {
+		background-color: #e8e8e8;
+	}
+
+	.dropdown-menu .submenu li a {
+		color: #333;
+		text-decoration: none;
+		display: block;
+		box-sizing: border-box;
+	}
+</style>
+<div class="header-sm hidden-sm hidden-md hidden-lg  ng-scope">
+	<div class="btn-group dropdown" uib-dropdown="" dropdown-append-to-body="">
+		<button id="btn-append-to-body" type="button" class="btn btn-link menu dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-align-justify"></span>
+        </button>
+		<a href="#/main/home"><img src="img/logo-icononly.png" class="small-header-logo"></a>
+
+	</div>
+	<div class="pull-right">
+		<div class="user-container-header ng-hide" ng-show="main.loggedIn &amp;&amp; !main.loadingUserInfo">
+
+			<div class="dropdown ng-hide" ng-show="main.loggedIn &amp;&amp; !main.loadingUserInfo">
+				<a href="" class="ng-binding">
+
+                    </a>
+				<div class="dropdown-content pmenu">
+					<a href="#" class="ng-binding"><span class="glyphicon glyphicon-time"></span>Ðiểm: </a>
+					<a href="#" class="ng-binding"><span class="glyphicon glyphicon-time"></span>Hạng: </a>
+					<a href="#/main/goidichvu"><span class="glyphicon glyphicon-user"></span>&nbsp;Quản lý thông tin hội viên</a>
+					<a href="javascript:void(0)" ng-click="main.btnThanhToan_Click();"><span class="glyphicon glyphicon-user"></span>&nbsp;Đổi điểm Vpoint</a>
+					<a href="javascript:void(0)" ng-click="main.btnTangDiem_Click();"><span class="glyphicon glyphicon-user"></span>&nbsp;Tặng điểm</a>
+					<a href="javascript:void(0)" ng-click="main.btnQuaySo_Click();"><span class="glyphicon glyphicon-user"></span>&nbsp;Quay số trúng thưởng</a>
+					<a href="" ng-click="main.logout()"><span class="glyphicon glyphicon-off"></span>&nbsp;Ðăng xuất</a>
+				</div>
+			</div>
+		</div>
+		<div class="user-container-header">
+			<div class="cntr">
+				<div class="cntr-innr">
+					<label class="search" for="inpt_search">
+						<input id="inpt_search" type="text">
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pull-right">
+		<div class="user-container-header" ng-show="!main.loggedIn &amp;&amp; !main.loadingUserInfo">
+			<a href="" ng-click="main.login()">ĐĂNG NHẬP / ĐĂNG KÝ &nbsp;&nbsp;</a>
+		</div>
+	</div>
+</div></div>
+    <div class="center-container ">
+        <!-- ngInclude: 'components/main/smallProgramNavigation.html' --><div ng-include="'components/main/smallProgramNavigation.html'" class="col-md-10 col-md-offset-2 ng-scope" style=""><div class="program-container large ng-scope">
+    <div class="col-md-4 col-xs-4 program quatang">
+        <img src="img/program/gift.png" class="bg">
+        <div class="bottom">
+            <div class="hover-content" style="margin-bottom: -73px;">
+                <div class="text">
+                    <p class="title">
+                        QUÀ TẶNG<img src="img/program/gift_icon.png" class="icon">
+                    </p>
+                    <div class="body">
+                        <!-- ngRepeat: item in ListQuaTang --><a ng-repeat="item in ListQuaTang" href="#/main/list/QuaTang/1/0/-1" class="ng-binding ng-scope">Quà tặng từ VinaPhone</a><!-- end ngRepeat: item in ListQuaTang --><a ng-repeat="item in ListQuaTang" href="#/main/list/QuaTang/2/0/-1" class="ng-binding ng-scope">Quà tặng sinh nhật</a><!-- end ngRepeat: item in ListQuaTang --><a ng-repeat="item in ListQuaTang" href="#/main/list/QuaTang/3/0/-1" class="ng-binding ng-scope">Quà tặng tải App</a><!-- end ngRepeat: item in ListQuaTang -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-4 program doidiem">
+        <img src="img/program/point.png" class="bg">
+        <div class="bottom">
+            <div class="hover-content" style="margin-bottom: -51px;">
+                <div class="text">
+                    <p class="title">
+                        ĐỔI ĐIỂM <img src="img/program/service_icon.png" class="icon">
+                    </p>
+                    <div class="body">
+                        <!-- ngRepeat: item in ListDoiDiem --><a ng-repeat="item in ListDoiDiem" href="#/main/list/DoiDiem/3/0/-1" class="ng-binding ng-scope">Đổi dịch vụ</a><!-- end ngRepeat: item in ListDoiDiem --><a ng-repeat="item in ListDoiDiem" href="#/main/list/DoiDiem/5/0/-1" class="ng-binding ng-scope">Đổi quà tặng</a><!-- end ngRepeat: item in ListDoiDiem -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-4 program uudai">
+        <img src="img/program/promotion.png" class="bg">
+        <div class="bottom">
+            <div class="hover-content" style="margin-bottom: -100px;">
+                <div class="text">
+                    <p class="title">
+                        ƯU ĐÃI HỘI VIÊN <img src="img/program/promotion_icon.png" class="icon">
+                    </p>
+                    <div class="body">
+                        <!-- ngRepeat: item in ListUuDaiHoiVien --><a ng-repeat="item in ListUuDaiHoiVien" href="#/main/list/HangHoiVien/1/0/-1" class="ng-binding ng-scope">Kim Cương</a><!-- end ngRepeat: item in ListUuDaiHoiVien --><a ng-repeat="item in ListUuDaiHoiVien" href="#/main/list/HangHoiVien/2/0/-1" class="ng-binding ng-scope">Vàng</a><!-- end ngRepeat: item in ListUuDaiHoiVien --><a ng-repeat="item in ListUuDaiHoiVien" href="#/main/list/HangHoiVien/3/0/-1" class="ng-binding ng-scope">TiTan</a><!-- end ngRepeat: item in ListUuDaiHoiVien --><a ng-repeat="item in ListUuDaiHoiVien" href="#/main/list/HangHoiVien/4/0/-1" class="ng-binding ng-scope">Bạc</a><!-- end ngRepeat: item in ListUuDaiHoiVien --><a ng-repeat="item in ListUuDaiHoiVien" href="#/main/list/HangHoiVien/5/0/-1" class="ng-binding ng-scope">Thân Thiết</a><!-- end ngRepeat: item in ListUuDaiHoiVien -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    </div>
+    <div class="content">
+        <div class="col-md-10 col-md-offset-2" style="margin-bottom: 10px;">
+            <!-- ngIf: vm.cards --><div ng-if="vm.cards" class="ng-scope" style="">
+                <div class="slick-container">
+                    <slick infinite="true" slides-to-show="5" slides-to-scroll="1" ng-class="{'NoImage': vm.programtype != 'HangHoiVien'}" class="ng-isolate-scope slick-initialized slick-slider" style="display: block;">
+                        <!-- ngRepeat: item in vm.cards track by $index --><div aria-live="polite" class="slick-list draggable"><div class="slick-track" role="listbox" style="opacity: 1; width: 835px; transform: translate3d(0px, 0px, 0px);"><div ng-repeat="item in vm.cards track by $index" ng-class="{'card-active': vm.activeCard == item}" class="ng-scope card-active slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 161px;">
+                            <a class="cardlink" href="#/main/list/HangHoiVien/1/0/-1" tabindex="0">
+                                <div class="card-container-img">
+                                    <img style="width: 60%" ng-src="img/cards/kc.png" src="img/cards/kc.png">
+                                </div>
+                                <div class="cardname">
+                                    <p class="ng-binding">Kim Cương</p>
+                                </div>
+                            </a>
+                        </div><div ng-repeat="item in vm.cards track by $index" ng-class="{'card-active': vm.activeCard == item}" class="ng-scope slick-slide slick-active" data-slick-index="1" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 161px;">
+                            <a class="cardlink" href="#/main/list/HangHoiVien/2/0/-1" tabindex="0">
+                                <div class="card-container-img">
+                                    <img style="width: 60%" ng-src="img/cards/v.png" src="img/cards/v.png">
+                                </div>
+                                <div class="cardname">
+                                    <p class="ng-binding">Vàng</p>
+                                </div>
+                            </a>
+                        </div><div ng-repeat="item in vm.cards track by $index" ng-class="{'card-active': vm.activeCard == item}" class="ng-scope slick-slide slick-active" data-slick-index="2" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 161px;">
+                            <a class="cardlink" href="#/main/list/HangHoiVien/3/0/-1" tabindex="0">
+                                <div class="card-container-img">
+                                    <img style="width: 60%" ng-src="img/cards/titan.png" src="img/cards/titan.png">
+                                </div>
+                                <div class="cardname">
+                                    <p class="ng-binding">TiTan</p>
+                                </div>
+                            </a>
+                        </div><div ng-repeat="item in vm.cards track by $index" ng-class="{'card-active': vm.activeCard == item}" class="ng-scope slick-slide slick-active" data-slick-index="3" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide03" style="width: 161px;">
+                            <a class="cardlink" href="#/main/list/HangHoiVien/4/0/-1" tabindex="0">
+                                <div class="card-container-img">
+                                    <img style="width: 60%" ng-src="img/cards/bac.png" src="img/cards/bac.png">
+                                </div>
+                                <div class="cardname">
+                                    <p class="ng-binding">Bạc</p>
+                                </div>
+                            </a>
+                        </div><div ng-repeat="item in vm.cards track by $index" ng-class="{'card-active': vm.activeCard == item}" class="ng-scope slick-slide slick-active" data-slick-index="4" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide04" style="width: 161px;">
+                            <a class="cardlink" href="#/main/list/HangHoiVien/5/0/-1" tabindex="0">
+                                <div class="card-container-img">
+                                    <img style="width: 60%" ng-src="img/cards/thanthiet.png" src="img/cards/thanthiet.png">
+                                </div>
+                                <div class="cardname">
+                                    <p class="ng-binding">Thân Thiết</p>
+                                </div>
+                            </a>
+                        </div></div></div><!-- end ngRepeat: item in vm.cards track by $index --><!-- end ngRepeat: item in vm.cards track by $index --><!-- end ngRepeat: item in vm.cards track by $index --><!-- end ngRepeat: item in vm.cards track by $index --><!-- end ngRepeat: item in vm.cards track by $index -->
+                    </slick>
+                </div>
+            </div><!-- end ngIf: vm.cards -->
+        </div>
+        <div class="col-md-2 no-padding">
+            <ul class="categories-list">
+                <!-- ngRepeat: tab in ListNhomUuDai --><li ng-repeat="tab in ListNhomUuDai" ng-class="{'active': vm.category == tab.id}" class="ng-scope active" style="">
+                    <!-- ngIf: tab.id==0 --><a href="#/main/list/HangHoiVien/1/0/-1" ng-if="tab.id==0" ng-bind-html="tab.TenNhomUuDai" class="1">Hot <span class="glyphicon glyphicon-star-empty"></span></a><!-- end ngIf: tab.id==0 -->
+                    <!-- ngIf: tab.id!=0 -->
+
+                </li><!-- end ngRepeat: tab in ListNhomUuDai --><li ng-repeat="tab in ListNhomUuDai" ng-class="{'active': vm.category == tab.id}" class="ng-scope" style="">
+                    <!-- ngIf: tab.id==0 -->
+                    <!-- ngIf: tab.id!=0 --><a href="#/main/list/HangHoiVien/1/21/-1" ng-if="tab.id!=0" ng-bind="tab.TenNhomUuDai" class="1">Thư mời hợp tác</a><!-- end ngIf: tab.id!=0 -->
+
+                </li><!-- end ngRepeat: tab in ListNhomUuDai --><li ng-repeat="tab in ListNhomUuDai" ng-class="{'active': vm.category == tab.id}" class="ng-scope">
+                    <!-- ngIf: tab.id==0 -->
+                    <!-- ngIf: tab.id!=0 --><a href="#/main/list/HangHoiVien/1/2/-1" ng-if="tab.id!=0" ng-bind="tab.TenNhomUuDai" class="1">Mua sắm</a><!-- end ngIf: tab.id!=0 -->
+
+                </li><!-- end ngRepeat: tab in ListNhomUuDai --><li ng-repeat="tab in ListNhomUuDai" ng-class="{'active': vm.category == tab.id}" class="ng-scope">
+                    <!-- ngIf: tab.id==0 -->
+                    <!-- ngIf: tab.id!=0 --><a href="#/main/list/HangHoiVien/1/3/-1" ng-if="tab.id!=0" ng-bind="tab.TenNhomUuDai" class="1">Giải trí</a><!-- end ngIf: tab.id!=0 -->
+
+                </li><!-- end ngRepeat: tab in ListNhomUuDai --><li ng-repeat="tab in ListNhomUuDai" ng-class="{'active': vm.category == tab.id}" class="ng-scope">
+                    <!-- ngIf: tab.id==0 -->
+                    <!-- ngIf: tab.id!=0 --><a href="#/main/list/HangHoiVien/1/4/-1" ng-if="tab.id!=0" ng-bind="tab.TenNhomUuDai" class="1">Du lịch</a><!-- end ngIf: tab.id!=0 -->
+
+                </li><!-- end ngRepeat: tab in ListNhomUuDai -->
+            </ul>
+        </div>
+
+        <!-- ngIf: !!vm.activeCard.code && vm.activeCard.code.toUpperCase() == 'VONGQUAYMAYMAN' -->
+        <!-- ngIf: !!vm.activeCard.code && vm.activeCard.code.toUpperCase() == 'PHIEUQUATANG' -->
+        <!-- ngIf: !vm.activeCard.code || (vm.activeCard.code.toUpperCase() != 'PHIEUQUATANG' && vm.activeCard.code.toUpperCase() != 'VONGQUAYMAYMAN') --><div ng-if="!vm.activeCard.code || (vm.activeCard.code.toUpperCase() != 'PHIEUQUATANG' &amp;&amp; vm.activeCard.code.toUpperCase() != 'VONGQUAYMAYMAN')" class="col-md-10 col-sm-12 col-xs-12 no-padding ng-scope" ng-class="false ? 'col-md-offset-2' : ''">
+            <div class="col-md-12 col-sm-12 col-xs-12" ng-hide="vm.totalDacQuyen == 0" style="">
+                <div class="category-home-container">
+                    <span class="category-title">ƯU ĐÃI ĐẶC QUYỀN</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 pull-right" ng-hide="vm.totalDacQuyen == 0" style="">
+                <!-- ngRepeat: item in vm.itemsDacQuyen | orderBy: '-hot' --><div class="list-promotion-item ng-scope" ng-repeat="item in vm.itemsDacQuyen | orderBy: '-hot'" ng-click="vm.itemClick(item)" style="">
+                    <div class="thumb 1   " ng-img="item.img" ng-text="item.content" ng-sold="item.Sold" ng-type="vm.program" ng-hinhthucuudai="item.hinhthucuudai" ng-percent="item.percent" ng-point="item.point" ng-vpoint="item.vpoint" ng-hot="item.hot" ng-loaidiem="item.loaidiem">
+    <!--<div class="notgift" ng-if="ngSold == true">Hết quà quà</div>-->
+    <!-- ngIf: ngHinhthucuudai == 0 && ngPercent != 0 && ngPercent != 100 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngPoint != -1 && (ngLoaidiem == 1 || ngLoaidiem == 0) -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 2 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 0 -->
+    <!-- ngIf: (ngHinhthucuudai == 0 && (ngPercent == 0 || ngPercent == 100))
+    || (ngHinhthucuudai == 1 && ngPoint == 0 && ngVpoint==0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 1 && ngPoint == 0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 2 && ngVpoint == 0) --><div class="badge zero ng-scope" ng-if="(ngHinhthucuudai == 0 &amp;&amp; (ngPercent == 0 || ngPercent == 100))
+    || (ngHinhthucuudai == 1 &amp;&amp; ngPoint == 0 &amp;&amp; ngVpoint==0)
+    || (ngHinhthucuudai == 1 &amp;&amp; ngLoaidiem == 1 &amp;&amp; ngPoint == 0)
+    || (ngHinhthucuudai == 1 &amp;&amp; ngLoaidiem == 2 &amp;&amp; ngVpoint == 0)" style=""></div><!-- end ngIf: (ngHinhthucuudai == 0 && (ngPercent == 0 || ngPercent == 100))
+    || (ngHinhthucuudai == 1 && ngPoint == 0 && ngVpoint==0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 1 && ngPoint == 0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 2 && ngVpoint == 0) -->
+    <!-- ngIf: ngSold == true -->
+    <img ng-src="https://picture.vinaphoneplus.com.vn//uploads/ChuongTrinhUuDai/18 the gioi  1-1582792518915.png" style="white-space:pre-line" class="bg" alt="SÂN BAY QUỐC TẾ - PHÒNG KHÁCH HẠNG THƯƠNG GIA NĂM 2020" src="https://picture.vinaphoneplus.com.vn//uploads/ChuongTrinhUuDai/18 the gioi  1-1582792518915.png">
+    <div class="text-container">
+        <p>
+            <span class="thumb-partner-name ng-binding">SÂN BAY QUỐC TẾ - PHÒNG KHÁCH HẠNG THƯƠNG GIA NĂM 2020</span>
+        </p>
+    </div>
+</div>
+                </div><!-- end ngRepeat: item in vm.itemsDacQuyen | orderBy: '-hot' --><div class="list-promotion-item ng-scope" ng-repeat="item in vm.itemsDacQuyen | orderBy: '-hot'" ng-click="vm.itemClick(item)">
+                    <div class="thumb 1   " ng-img="item.img" ng-text="item.content" ng-sold="item.Sold" ng-type="vm.program" ng-hinhthucuudai="item.hinhthucuudai" ng-percent="item.percent" ng-point="item.point" ng-vpoint="item.vpoint" ng-hot="item.hot" ng-loaidiem="item.loaidiem">
+    <!--<div class="notgift" ng-if="ngSold == true">Hết quà quà</div>-->
+    <!-- ngIf: ngHinhthucuudai == 0 && ngPercent != 0 && ngPercent != 100 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngPoint != -1 && (ngLoaidiem == 1 || ngLoaidiem == 0) -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 2 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 0 -->
+    <!-- ngIf: (ngHinhthucuudai == 0 && (ngPercent == 0 || ngPercent == 100))
+    || (ngHinhthucuudai == 1 && ngPoint == 0 && ngVpoint==0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 1 && ngPoint == 0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 2 && ngVpoint == 0) --><div class="badge zero ng-scope" ng-if="(ngHinhthucuudai == 0 &amp;&amp; (ngPercent == 0 || ngPercent == 100))
+    || (ngHinhthucuudai == 1 &amp;&amp; ngPoint == 0 &amp;&amp; ngVpoint==0)
+    || (ngHinhthucuudai == 1 &amp;&amp; ngLoaidiem == 1 &amp;&amp; ngPoint == 0)
+    || (ngHinhthucuudai == 1 &amp;&amp; ngLoaidiem == 2 &amp;&amp; ngVpoint == 0)" style=""></div><!-- end ngIf: (ngHinhthucuudai == 0 && (ngPercent == 0 || ngPercent == 100))
+    || (ngHinhthucuudai == 1 && ngPoint == 0 && ngVpoint==0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 1 && ngPoint == 0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 2 && ngVpoint == 0) -->
+    <!-- ngIf: ngSold == true -->
+    <img ng-src="https://picture.vinaphoneplus.com.vn//uploads/ChuongTrinhUuDai/4 Song Hong INT 1-1582790344046.png" style="white-space:pre-line" class="bg" alt="SÂN BAY TRONG NƯỚC - PHÒNG KHÁCH HẠNG THƯƠNG GIA NĂM 2020" src="https://picture.vinaphoneplus.com.vn//uploads/ChuongTrinhUuDai/4 Song Hong INT 1-1582790344046.png">
+    <div class="text-container">
+        <p>
+            <span class="thumb-partner-name ng-binding">SÂN BAY TRONG NƯỚC - PHÒNG KHÁCH HẠNG THƯƠNG GIA NĂM 2020</span>
+        </p>
+    </div>
+</div>
+                </div><!-- end ngRepeat: item in vm.itemsDacQuyen | orderBy: '-hot' --><div class="list-promotion-item ng-scope" ng-repeat="item in vm.itemsDacQuyen | orderBy: '-hot'" ng-click="vm.itemClick(item)">
+                    <div class="thumb 1   " ng-img="item.img" ng-text="item.content" ng-sold="item.Sold" ng-type="vm.program" ng-hinhthucuudai="item.hinhthucuudai" ng-percent="item.percent" ng-point="item.point" ng-vpoint="item.vpoint" ng-hot="item.hot" ng-loaidiem="item.loaidiem">
+    <!--<div class="notgift" ng-if="ngSold == true">Hết quà quà</div>-->
+    <!-- ngIf: ngHinhthucuudai == 0 && ngPercent != 0 && ngPercent != 100 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngPoint != -1 && (ngLoaidiem == 1 || ngLoaidiem == 0) -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 2 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 0 -->
+    <!-- ngIf: (ngHinhthucuudai == 0 && (ngPercent == 0 || ngPercent == 100))
+    || (ngHinhthucuudai == 1 && ngPoint == 0 && ngVpoint==0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 1 && ngPoint == 0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 2 && ngVpoint == 0) --><div class="badge zero ng-scope" ng-if="(ngHinhthucuudai == 0 &amp;&amp; (ngPercent == 0 || ngPercent == 100))
+    || (ngHinhthucuudai == 1 &amp;&amp; ngPoint == 0 &amp;&amp; ngVpoint==0)
+    || (ngHinhthucuudai == 1 &amp;&amp; ngLoaidiem == 1 &amp;&amp; ngPoint == 0)
+    || (ngHinhthucuudai == 1 &amp;&amp; ngLoaidiem == 2 &amp;&amp; ngVpoint == 0)" style=""></div><!-- end ngIf: (ngHinhthucuudai == 0 && (ngPercent == 0 || ngPercent == 100))
+    || (ngHinhthucuudai == 1 && ngPoint == 0 && ngVpoint==0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 1 && ngPoint == 0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 2 && ngVpoint == 0) -->
+    <!-- ngIf: ngSold == true -->
+    <img ng-src="https://picture.vinaphoneplus.com.vn//uploads/ChuongTrinhUuDai/Bà Nà Hill 1-1564594728582.jpg" style="white-space:pre-line" class="bg" alt="ƯU ĐÃI GIẢM 500.000Đ PHÍ CHƠI GOLF TẠI CÁC SÂN GOLF LỚN TRÊN TOÀN QUỐC" src="https://picture.vinaphoneplus.com.vn//uploads/ChuongTrinhUuDai/Bà Nà Hill 1-1564594728582.jpg">
+    <div class="text-container">
+        <p>
+            <span class="thumb-partner-name ng-binding">ƯU ĐÃI GIẢM 500.000Đ PHÍ CHƠI GOLF TẠI CÁC SÂN GOLF LỚN TRÊN TOÀN QUỐC</span>
+        </p>
+    </div>
+</div>
+                </div><!-- end ngRepeat: item in vm.itemsDacQuyen | orderBy: '-hot' -->
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12" ng-hide="vm.totalDacQuyen <= 3">
+                <div class="navigator-container" style="float:left;position:relative">
+                    <div class="navigator ng-isolate-scope" ng-on-navigator="vm.pagingDacQuyen">
+    <span ng-click="ngOnNavigator('prev')">p</span>
+    <span ng-click="ngOnNavigator('next')">n</span>
+</div>
+                </div>
+            </div>
+            <div ng-hide="vm.totalDacQuyen == 0" class="" style="">&nbsp;</div>
+            <div class="clear"></div>
+            <div class="col-md-12 col-sm-12 col-xs-12" ng-hide="vm.items.length == 0" style="">
+                <div class="category-home-container">
+                    <span class="category-title">ƯU ĐÃI DÀNH CHO HỘI VIÊN</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                <h4 ng-show="vm.items.length == 0 &amp;&amp; vm.quaysotrungthuong!=1 &amp;&amp; !vm.loading" class="text-center text-info ng-binding ng-hide" style="">Các chương trình ưu đãi/quà tặng đang chờ được cập nhật</h4>
+                <!-- ngRepeat: item in vm.items | orderBy: '-hot' --><div class="list-promotion-item ng-scope" ng-repeat="item in vm.items | orderBy: '-hot'" ng-click="vm.itemClick(item)" style="">
+                    <div class="thumb 1   " ng-img="item.img" ng-text="item.content" ng-sold="item.Sold" ng-type="vm.program" ng-hinhthucuudai="item.hinhthucuudai" ng-percent="item.percent" ng-point="item.point" ng-vpoint="item.vpoint" ng-hot="item.hot" ng-loaidiem="item.loaidiem">
+    <!--<div class="notgift" ng-if="ngSold == true">Hết quà quà</div>-->
+    <!-- ngIf: ngHinhthucuudai == 0 && ngPercent != 0 && ngPercent != 100 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngPoint != -1 && (ngLoaidiem == 1 || ngLoaidiem == 0) -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 2 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 0 -->
+    <!-- ngIf: (ngHinhthucuudai == 0 && (ngPercent == 0 || ngPercent == 100))
+    || (ngHinhthucuudai == 1 && ngPoint == 0 && ngVpoint==0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 1 && ngPoint == 0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 2 && ngVpoint == 0) --><div class="badge zero ng-scope" ng-if="(ngHinhthucuudai == 0 &amp;&amp; (ngPercent == 0 || ngPercent == 100))
+    || (ngHinhthucuudai == 1 &amp;&amp; ngPoint == 0 &amp;&amp; ngVpoint==0)
+    || (ngHinhthucuudai == 1 &amp;&amp; ngLoaidiem == 1 &amp;&amp; ngPoint == 0)
+    || (ngHinhthucuudai == 1 &amp;&amp; ngLoaidiem == 2 &amp;&amp; ngVpoint == 0)" style=""></div><!-- end ngIf: (ngHinhthucuudai == 0 && (ngPercent == 0 || ngPercent == 100))
+    || (ngHinhthucuudai == 1 && ngPoint == 0 && ngVpoint==0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 1 && ngPoint == 0)
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 2 && ngVpoint == 0) -->
+    <!-- ngIf: ngSold == true -->
+    <img ng-src="https://picture.vinaphoneplus.com.vn//uploads/ChuongTrinhUuDai/Logo VNP Plus-1562126243884.jpg" style="white-space:pre-line" class="bg" alt="THƯ MỜI HỢP TÁC" src="https://picture.vinaphoneplus.com.vn//uploads/ChuongTrinhUuDai/Logo VNP Plus-1562126243884.jpg">
+    <div class="text-container">
+        <p>
+            <span class="thumb-partner-name ng-binding">THƯ MỜI HỢP TÁC</span>
+        </p>
+    </div>
+</div>
+                </div><!-- end ngRepeat: item in vm.items | orderBy: '-hot' -->
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 ng-hide" ng-hide="vm.totalUuDai <= 30">
+                <div class="navigator-container" style="float:left;position:relative">
+                    <div class="navigator ng-isolate-scope" ng-on-navigator="vm.pagingUuDai">
+    <span ng-click="ngOnNavigator('prev')">p</span>
+    <span ng-click="ngOnNavigator('next')">n</span>
+</div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <!-- <div class="col-md-12 col-sm-12 col-xs-12 pull-right" ng-if="vm.itemsTrungThuong.length == 1" style="text-align: center">
+               <img src="/img/logo.png">
+            </div> -->
+            <!-- ngIf: vm.quaysotrungthuong==1 -->
+            <!-- <div class="col-md-12 col-sm-12 col-xs-12" ng-hide="vm.totalTrungThuong <= 30">
+                <div class="navigator-container" style="float:left;position:relative">
+                    <ng-navigator ng-on-navigator="vm.pagingTrungThuong"></ng-navigator>
+                </div>
+            </div> -->
+        </div><!-- end ngIf: !vm.activeCard.code || (vm.activeCard.code.toUpperCase() != 'PHIEUQUATANG' && vm.activeCard.code.toUpperCase() != 'VONGQUAYMAYMAN') -->
+    </div>
+</div></div>
+    <!-- ngInclude: 'components/main/footer.html' --><div ng-include="'components/main/footer.html'" class="ng-scope" style=""><div class="footer ng-scope">
+    <div class="main-content">
+        <div class="col-md-7 col-sm-8 main-block">
+            <img src="img/footer/bg_footer.png" alt="VinaPhone" class="member"><br>
+            <p style="text-align: justify">VNPT Vinaphone © 2019.<br>
+            Giấy phép số: 337/GP-BC do Bộ Thông tin - Truyền thông cấp ngày 10/11/2006.<br>
+            Tập đoàn Bưu chính Viễn thông Việt Nam<br>
+            Trụ sở: Tòa nhà VNPT, số 57 Phố Huỳnh Thúc Kháng, Phường Láng Hạ, Quận Đống Đa, Thành phố Hà Nội, Việt Nam<br>
+            Mã số doanh nghiệp: 0100684378 do Sở Kế hoạch và Đầu tư TP.Hà Nội cấp ngày 22/10/2018<br>
+            Giấy phép cung cấp dịch vụ viễn thông số 469/GP-BTTTT do Bộ Thông tin và Truyền thông cấp ngày 14/10/2016<br>
+            Giấy phép cung cấp dịch vụ viễn thông số 18/GP-CVT do Bộ Thông tin và Truyền thông cấp ngày 18/01/2018<br></p>
+        </div>
+        <div class="col-md-5 col-sm-4">
+        <a href="http://online.gov.vn/Home/WebDetails/64711" target="_blank"><img alt="" title=""><img src="img/footer/dathongbao.png" style="margin-top: 15px; margin-bottom: 5px; width: 50%;"></a>
+        <div class="main-block">
+            <strong>Liên hệ</strong><br>
+            <p>Đường dây nóng <strong>18001091</strong><br>
+                <a href="https://www.facebook.com/vinaphonefan" target="_blank">
+                    <img src="img/social/facebook.png" class="social-img">
+                </a>
+                <a href="https://www.youtube.com/watch?v=CIZrfyx0tlU" target="_blank">
+                    <img src="img/social/youtube.png" class="social-img">
+                </a>
+                <a href="https://twitter.com/dangkycaidatm70" target="_blank">
+                    <img src="img/social/twitter.png" class="social-img">
+                </a>
+            </p>
+        </div>
+        <div>
+            <div class="ft-link ">
+            </div>
+            <p class="ptop15">
+                <br>
+                <a href="https://apiquantri.vinaphoneplus.com.vn/" target="_blank">Đơn vị chăm sóc khách hàng</a> |
+                <a href="https://apiquantri.vinaphoneplus.com.vn/" target="_blank">Hỗ trợ khách hàng</a> |
+                <!-- <a href="{{main.linkDonViChamSoc}}" target="_blank">Đơn vị chăm sóc khách hàng</a> |  -->
+                <a href="https://apiquantri.vinaphoneplus.com.vn/" target="_blank">Cửa hàng</a> |
+                <a href="#/main/dieukhoan" target="_blank">Điều khoản</a>
+            </p>
+            <p class="ptop15">
+                </p><div>Tải ứng dụng VinaPhone Plus</div>
+                <!--<a href="http://vinaphoneplus.com.vn/download.php" style="color:white;" target="_blank"><span style="vertical-align: bottom;font-weight: bold;font-size: 13px;">Tải ứng dụng VinaPhone Plus<br></span>
+                    <img src="img/footer/os.png" alt="Tải ứng dụng" style="height: 25px;margin-top: 15px;"></a>-->
+
+                <a href="https://play.google.com/store/apps/details?id=com.vn.viplus&amp;hl=enNguyen" target="_blank">
+                    <img src="img/social/gg.png" class="social-img">
+                </a>
+                <!--<a href="https://www.microsoft.com/en-us/store/p/vinaphone-plus/9nblggh0k1m2" target="_blank">
+                    <img src="img/social/wd.png" class="social-img"/>
+                </a>-->
+                <a href="https://itunes.apple.com/vn/app/vinaphone-plus/id941561372?l=vi&amp;mt=8" target="_blank">
+                    <img src="img/social/os.png" class="social-img">
+                </a>
+            <p></p>
+
+        </div>
+    </div>
+    </div>
+</div></div>
+    <!-- ngInclude: 'components/main/sideBanner.html' --><div ng-include="'components/main/sideBanner.html'" class="ng-scope"><a ng-href="" class="left-banner hidden-sm hidden-xs subSidebar">
+    <img>
+</a>
+<a ng-href="" class="right-banner hidden-sm hidden-xs subSidebar">
+    <img>
+</a></div>
+</div></div>

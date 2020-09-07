@@ -1,0 +1,125 @@
+
+            <div class="col-md-12 col-sm-12 col-xs-12" ng-hide="vm.totalDacQuyen == 0" style="">
+                <div class="category-home-container">
+                    <span class="category-title">ƯU ĐÃI ĐẶC QUYỀN</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 pull-right" ng-hide="vm.totalDacQuyen == 0" style="">
+                <!-- ngRepeat: item in vm.itemsDacQuyen | orderBy: '-hot' -->
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 ng-hide" ng-hide="vm.totalDacQuyen <= 3">
+                <div class="navigator-container" style="float:left;position:relative">
+                    <div class="navigator ng-isolate-scope" ng-on-navigator="vm.pagingDacQuyen">
+    <span ng-click="ngOnNavigator('prev')">p</span>
+    <span ng-click="ngOnNavigator('next')">n</span>
+</div>
+                </div>
+            </div>
+            <div ng-hide="vm.totalDacQuyen == 0" class="" style="">&nbsp;</div>
+            <div class="clear"></div>
+            <div class="col-md-12 col-sm-12 col-xs-12" ng-hide="vm.items.length == 0" style="">
+                <div class="category-home-container">
+                    <span class="category-title">ƯU ĐÃI DÀNH CHO HỘI VIÊN</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                <h4 ng-show="vm.items.length == 0 &amp;&amp; vm.quaysotrungthuong!=1 &amp;&amp; !vm.loading" class="text-center text-info ng-binding ng-hide" style="">Các chương trình ưu đãi/quà tặng đang chờ được cập nhật</h4>
+                <!-- ngRepeat: item in vm.items | orderBy: '-hot' --><div class="list-promotion-item ng-scope" ng-repeat="item in vm.items | orderBy: '-hot'" ng-click="vm.itemClick(item)" style="">
+                    <div class="thumb 3   " ng-img="item.img" ng-text="item.content" ng-sold="item.Sold" ng-type="vm.program" ng-hinhthucuudai="item.hinhthucuudai" ng-percent="item.percent" ng-point="item.point" ng-vpoint="item.vpoint" ng-hot="item.hot" ng-loaidiem="item.loaidiem">
+    <!--<div class="notgift" ng-if="ngSold == true">Hết quà quà</div>-->
+    <!-- ngIf: ngHinhthucuudai == 0 && ngPercent != 0 && ngPercent != 100 --><div class="badge ng-binding ng-scope" ng-if="ngHinhthucuudai == 0 &amp;&amp; ngPercent != 0 &amp;&amp; ngPercent != 100" style="">30%</div><!-- end ngIf: ngHinhthucuudai == 0 && ngPercent != 0 && ngPercent != 100 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngPoint != -1 && (ngLoaidiem == 1 || ngLoaidiem == 0) -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 2 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 0 -->
+    <!-- ngIf: (ngHinhthucuudai == 0 && (ngPercent == 0 || ngPercent == 100)) 
+    || (ngHinhthucuudai == 1 && ngPoint == 0 && ngVpoint==0) 
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 1 && ngPoint == 0) 
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 2 && ngVpoint == 0) -->
+    <!-- ngIf: ngSold == true -->
+    <img ng-src="https://picture.vinaphoneplus.com.vn/uploads/ChuongTrinhUuDai/gj2ea_1597742862568.jpg" style="white-space:pre-line" class="bg" alt="Ưu đãi SamSung cùng Vinaphone Plus" src="https://picture.vinaphoneplus.com.vn/uploads/ChuongTrinhUuDai/gj2ea_1597742862568.jpg">
+    <div class="text-container">
+        <p>
+            <span class="thumb-partner-name ng-binding">Ưu đãi SamSung cùng Vinaphone Plus</span>
+        </p>
+    </div>
+</div>
+                </div><!-- end ngRepeat: item in vm.items | orderBy: '-hot' --><div class="list-promotion-item ng-scope" ng-repeat="item in vm.items | orderBy: '-hot'" ng-click="vm.itemClick(item)">
+                    <div class="thumb 3   " ng-img="item.img" ng-text="item.content" ng-sold="item.Sold" ng-type="vm.program" ng-hinhthucuudai="item.hinhthucuudai" ng-percent="item.percent" ng-point="item.point" ng-vpoint="item.vpoint" ng-hot="item.hot" ng-loaidiem="item.loaidiem">
+    <!--<div class="notgift" ng-if="ngSold == true">Hết quà quà</div>-->
+    <!-- ngIf: ngHinhthucuudai == 0 && ngPercent != 0 && ngPercent != 100 --><div class="badge ng-binding ng-scope" ng-if="ngHinhthucuudai == 0 &amp;&amp; ngPercent != 0 &amp;&amp; ngPercent != 100" style="">12%</div><!-- end ngIf: ngHinhthucuudai == 0 && ngPercent != 0 && ngPercent != 100 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngPoint != -1 && (ngLoaidiem == 1 || ngLoaidiem == 0) -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 2 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 0 -->
+    <!-- ngIf: (ngHinhthucuudai == 0 && (ngPercent == 0 || ngPercent == 100)) 
+    || (ngHinhthucuudai == 1 && ngPoint == 0 && ngVpoint==0) 
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 1 && ngPoint == 0) 
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 2 && ngVpoint == 0) -->
+    <!-- ngIf: ngSold == true -->
+    <img ng-src="https://picture.vinaphoneplus.com.vn/uploads/ChuongTrinhUuDai/6xhmp_1597636494357.jpg" style="white-space:pre-line" class="bg" alt="HOA TRAO NGƯỜI THƯƠNG, CHẲNG LO VỀ GIÁ" src="https://picture.vinaphoneplus.com.vn/uploads/ChuongTrinhUuDai/6xhmp_1597636494357.jpg">
+    <div class="text-container">
+        <p>
+            <span class="thumb-partner-name ng-binding">HOA TRAO NGƯỜI THƯƠNG, CHẲNG LO VỀ GIÁ</span>
+        </p>
+    </div>
+</div>
+                </div><!-- end ngRepeat: item in vm.items | orderBy: '-hot' --><div class="list-promotion-item ng-scope" ng-repeat="item in vm.items | orderBy: '-hot'" ng-click="vm.itemClick(item)">
+                    <div class="thumb 3   " ng-img="item.img" ng-text="item.content" ng-sold="item.Sold" ng-type="vm.program" ng-hinhthucuudai="item.hinhthucuudai" ng-percent="item.percent" ng-point="item.point" ng-vpoint="item.vpoint" ng-hot="item.hot" ng-loaidiem="item.loaidiem">
+    <!--<div class="notgift" ng-if="ngSold == true">Hết quà quà</div>-->
+    <!-- ngIf: ngHinhthucuudai == 0 && ngPercent != 0 && ngPercent != 100 --><div class="badge ng-binding ng-scope" ng-if="ngHinhthucuudai == 0 &amp;&amp; ngPercent != 0 &amp;&amp; ngPercent != 100" style="">32%</div><!-- end ngIf: ngHinhthucuudai == 0 && ngPercent != 0 && ngPercent != 100 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngPoint != -1 && (ngLoaidiem == 1 || ngLoaidiem == 0) -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 2 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 0 -->
+    <!-- ngIf: (ngHinhthucuudai == 0 && (ngPercent == 0 || ngPercent == 100)) 
+    || (ngHinhthucuudai == 1 && ngPoint == 0 && ngVpoint==0) 
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 1 && ngPoint == 0) 
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 2 && ngVpoint == 0) -->
+    <!-- ngIf: ngSold == true -->
+    <img ng-src="https://picture.vinaphoneplus.com.vn/uploads/ChuongTrinhUuDai/qy6ln_1597042698404.jpg" style="white-space:pre-line" class="bg" alt="TRANG SỨC DOJI HOÀN TIỀN CÔNG CHẾ TÁC LÊN TỚI 32% DÀNH CHO HỘI VIÊN VINAPHONE PLUS" src="https://picture.vinaphoneplus.com.vn/uploads/ChuongTrinhUuDai/qy6ln_1597042698404.jpg">
+    <div class="text-container">
+        <p>
+            <span class="thumb-partner-name ng-binding">TRANG SỨC DOJI HOÀN TIỀN CÔNG CHẾ TÁC LÊN TỚI 32% DÀNH CHO HỘI VIÊN VINAPHONE PLUS</span>
+        </p>
+    </div>
+</div>
+                </div><!-- end ngRepeat: item in vm.items | orderBy: '-hot' --><div class="list-promotion-item ng-scope" ng-repeat="item in vm.items | orderBy: '-hot'" ng-click="vm.itemClick(item)">
+                    <div class="thumb 3   " ng-img="item.img" ng-text="item.content" ng-sold="item.Sold" ng-type="vm.program" ng-hinhthucuudai="item.hinhthucuudai" ng-percent="item.percent" ng-point="item.point" ng-vpoint="item.vpoint" ng-hot="item.hot" ng-loaidiem="item.loaidiem">
+    <!--<div class="notgift" ng-if="ngSold == true">Hết quà quà</div>-->
+    <!-- ngIf: ngHinhthucuudai == 0 && ngPercent != 0 && ngPercent != 100 --><div class="badge ng-binding ng-scope" ng-if="ngHinhthucuudai == 0 &amp;&amp; ngPercent != 0 &amp;&amp; ngPercent != 100" style="">2%</div><!-- end ngIf: ngHinhthucuudai == 0 && ngPercent != 0 && ngPercent != 100 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngPoint != -1 && (ngLoaidiem == 1 || ngLoaidiem == 0) -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 2 -->
+    <!-- ngIf: ngHinhthucuudai == 1 && ngVpoint != -1 && ngLoaidiem == 0 -->
+    <!-- ngIf: (ngHinhthucuudai == 0 && (ngPercent == 0 || ngPercent == 100)) 
+    || (ngHinhthucuudai == 1 && ngPoint == 0 && ngVpoint==0) 
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 1 && ngPoint == 0) 
+    || (ngHinhthucuudai == 1 && ngLoaidiem == 2 && ngVpoint == 0) -->
+    <!-- ngIf: ngSold == true -->
+    <img ng-src="https://picture.vinaphoneplus.com.vn/uploads/ChuongTrinhUuDai/w400d_1597029554123.jpg" style="white-space:pre-line" class="bg" alt="TRANG SỨC DOJI GIẢM 2% KHI MUA TRANG SỨC KIM CƯƠNG VÀ TẶNG ĐỒNG HỒ PIERE CARDIN CHÍNH HÃNG DÀNH RIÊNG CHO HỘI VIÊN VINAPHONE PLUS" src="https://picture.vinaphoneplus.com.vn/uploads/ChuongTrinhUuDai/w400d_1597029554123.jpg">
+    <div class="text-container">
+        <p>
+            <span class="thumb-partner-name ng-binding">TRANG SỨC DOJI GIẢM 2% KHI MUA TRANG SỨC KIM CƯƠNG VÀ TẶNG ĐỒNG HỒ PIERE CARDIN CHÍNH HÃNG DÀNH RIÊNG CHO HỘI VIÊN VINAPHONE PLUS</span>
+        </p>
+    </div>
+</div>
+                </div><!-- end ngRepeat: item in vm.items | orderBy: '-hot' -->
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 ng-hide" ng-hide="vm.totalUuDai <= 30">
+                <div class="navigator-container" style="float:left;position:relative">
+                    <div class="navigator ng-isolate-scope" ng-on-navigator="vm.pagingUuDai">
+    <span ng-click="ngOnNavigator('prev')">p</span>
+    <span ng-click="ngOnNavigator('next')">n</span>
+</div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <!-- <div class="col-md-12 col-sm-12 col-xs-12 pull-right" ng-if="vm.itemsTrungThuong.length == 1" style="text-align: center">
+               <img src="/img/logo.png">
+            </div> -->
+            <!-- ngIf: vm.quaysotrungthuong==1 -->
+            <!-- <div class="col-md-12 col-sm-12 col-xs-12" ng-hide="vm.totalTrungThuong <= 30">
+                <div class="navigator-container" style="float:left;position:relative">
+                    <ng-navigator ng-on-navigator="vm.pagingTrungThuong"></ng-navigator>
+                </div>
+            </div> -->
+        

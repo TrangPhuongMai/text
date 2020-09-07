@@ -1,0 +1,124 @@
+{
+	"_ga": "GA1.3.1379650702.1598839918",
+	"_gat_gtag_UA_93748426_1": "1",
+	"_gid": "GA1.3.1319505873.1598839918",
+	"_pk_id.328.9060": "2e72690def1d1418.1598858610.1.1598858610.1598858610.",
+	"_pk_ref.328.9060": "[\"\",\"\",1598858610,\"https://vinaphoneplus.com.vn/\"]"
+}
+{
+	"_ga": "GA1.3.1379650702.1598839918",
+	"_gat_gtag_UA_93748426_1": "1",
+	"_gid": "GA1.3.1319505873.1598839918",
+	"_pk_id.328.9060": "2e72690def1d1418.1598858610.1.1598858610.1598858610.",
+	"_pk_ref.328.9060": "[\"\",\"\",1598858610,\"https://vinaphoneplus.com.vn/\"]"
+}
+
+{
+	"Response Headers (488 B)": {
+		"headers": [
+			{
+				"name": "Access-Control-Allow-Credentials",
+				"value": "true"
+			},
+			{
+				"name": "Access-Control-Allow-Headers",
+				"value": "Origin, X-Requested-With, Content-Type, Accept"
+			},
+			{
+				"name": "Access-Control-Allow-Methods",
+				"value": "GET,PUT,POST,DELETE"
+			},
+			{
+				"name": "Access-Control-Allow-Origin",
+				"value": "https://vinaphoneplus.com.vn"
+			},
+			{
+				"name": "Connection",
+				"value": "keep-alive"
+			},
+			{
+				"name": "Content-Length",
+				"value": "1781"
+			},
+			{
+				"name": "Content-Type",
+				"value": "application/json; charset=utf-8"
+			},
+			{
+				"name": "Date",
+				"value": "Tue, 01 Sep 2020 02:18:31 GMT"
+			},
+			{
+				"name": "ETag",
+				"value": "W/\"6f5-0Hu2rspQmVO2yIWNH9VIh50vCm8\""
+			},
+			{
+				"name": "Server",
+				"value": "nginx/1.10.2"
+			},
+			{
+				"name": "X-Frame-Options",
+				"value": "DENY"
+			},
+			{
+				"name": "X-Powered-By",
+				"value": "Express"
+			}
+		]
+	}
+}
+
+{
+	"Response Headers (488 B)": {
+		"headers": [
+			{
+				"name": "Access-Control-Allow-Credentials",
+				"value": "true"
+			},
+			{
+				"name": "Access-Control-Allow-Headers",
+				"value": "Origin, X-Requested-With, Content-Type, Accept"
+			},
+			{
+				"name": "Access-Control-Allow-Methods",
+				"value": "GET,PUT,POST,DELETE"
+			},
+			{
+				"name": "Access-Control-Allow-Origin",
+				"value": "https://vinaphoneplus.com.vn"
+			},
+			{
+				"name": "Connection",
+				"value": "keep-alive"
+			},
+			{
+				"name": "Content-Length",
+				"value": "1781"
+			},
+			{
+				"name": "Content-Type",
+				"value": "application/json; charset=utf-8"
+			},
+			{
+				"name": "Date",
+				"value": "Tue, 01 Sep 2020 01:41:05 GMT"
+			},
+			{
+				"name": "ETag",
+				"value": "W/\"6f5-0Hu2rspQmVO2yIWNH9VIh50vCm8\""
+			},
+			{
+				"name": "Server",
+				"value": "nginx/1.10.2"
+			},
+			{
+				"name": "X-Frame-Options",
+				"value": "DENY"
+			},
+			{
+				"name": "X-Powered-By",
+				"value": "Express"
+			}
+		]
+	}
+}
